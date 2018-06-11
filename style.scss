@@ -485,6 +485,7 @@ body {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     color: rgb(20, 23, 26);
+    line-height: 1.6;
     h1, h2 {
         font-family: 'Montserrat', sans-serif;
     }
@@ -519,7 +520,7 @@ h2 {
     left: 0;
     right: 0;
     background-color: rgba(51, 51, 51,.6);
-    z-index: 9999;
+    z-index: 90;
     font-size: 16px;
     @media screen and (min-width: 576px) {
         padding: 5px 10px;
@@ -583,7 +584,8 @@ h2 {
 }
 
 .blog-container {
-    margin-top: 80px;
+    max-width: 740px;
+    margin: 80px auto 0 auto;
     padding: 0 5px;
     @media screen and (min-width: 576px){
         padding: 0 10px;
