@@ -16,6 +16,16 @@
             var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
         </script>
         <ul class="navbar">
-            <li><a href="/wordpress">Home</a></li>
-            <li><a href="/wordpress/blog">Blog</a></li>
+        <?php 
+        $pages = get_pages(array(
+            "sort_order" => "ASC",
+            "sort_column" => "post_date"
+        ));
+        foreach($pages as $page):
+        ?>
+            <li><a href="<?php echo get_page_link($page->ID);?>"><?php echo $page->post_title;?></a></li>
+        <?php
+        endforeach;
+        ?>
         </ul>
+            
