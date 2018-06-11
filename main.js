@@ -96,6 +96,9 @@ jQuery(document).ready(function($){
 
 	function anchorFunction(){
 		var anchorElm = document.getElementById("anchor");
+		if(!anchorElm){
+			return
+		}
 		// Scroll to top on click
 		anchorElm.addEventListener("click",function(){
 			window.scroll({
