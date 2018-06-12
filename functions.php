@@ -81,4 +81,35 @@ function send_email(){
 
 add_action("wp_ajax_send_email","send_email");
 add_action("wp_ajax_nopriv_send_email","send_email");
+
+// Endless Scroll Endpoint
+function get_next_posts(){
+	$offset = $_POST["offset"];
+	$posts = wp_get_recent_posts(array(
+		"offset" => $offset,
+		"category_name" => "blog_post"
+	));
+	foreach($posts as $post):
+	?>
+	<div class="blog-post">
+		<a href="<?php echo get_permalink($post["ID"]);?>" class="post-title">
+			<?php echo $post["post_title"];?>
+		</a>
+		<h3 class="post-date">
+			&mdash; <?php echo $post["post_date"];?>
+		</h3>
+		<p class="post-content">
+			<?php echo $post["post_excerpt"];?>
+		</p>
+	</div>
+	<?php
+	endforeach;
+	wp_reset_query();
+	die();
+}
+
+// Activate Ajax for authorised Users and guests
+add_action("wp_ajax_get_next_posts","get_next_posts");
+add_action("wp_ajax_nopriv_get_next_posts","get_next_posts");
+
 ?>
