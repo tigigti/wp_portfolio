@@ -36,6 +36,7 @@ Description: My Personal Porftolio Theme for my Website
 }
 
 // Color Variables
+$default : #14171a;
 $accentBlue: #CAEBF2;
 $dark: #a9a9a9;
 $accentRed: #ff3b3f;
@@ -452,6 +453,9 @@ $h2: 1.2em;
                     font-size: 1em;
                     background-color: transparent;
                     z-index: 999;
+                    &:focus {
+                        outline: none;
+                    }
                 }
             }
             label, textarea {
@@ -463,6 +467,10 @@ $h2: 1.2em;
                 border: 1px solid $dark;
                 font-size: 1em;
                 width: 100%;
+                box-sizing: border-box;
+                &:focus {
+                    outline: none;
+                }
             }
             .ai-btn {
                 margin-top: 24px;
@@ -606,22 +614,37 @@ h2 {
         border-bottom: none;
     }
     .post-title {
-        font-size: 1.5em;
-        color: black;
+        font-size: 1.25em;
+        color: $default;
         font-weight: 700;
         text-decoration: none;
         &:hover {
-            color: grey;
+            color: $dark;
             cursor: pointer;
         }
     }
     .post-date {
-        color: grey;
+        color: $dark;
         font-style: italic;
         margin: .3em 0;
+        font-size: 1em;
     }
     .post-content {
         margin-bottom: 0;
+    }
+
+    &.single {
+        border-bottom: none;
+        .post-title {
+            text-align: center;
+            &:hover {
+                color: $default;
+                cursor: default;
+            }
+        }
+        .post-date {
+            text-align: center;
+        }
     }
 }
 
