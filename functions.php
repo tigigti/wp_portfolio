@@ -96,7 +96,7 @@ function get_next_posts(){
 			<?php echo $post["post_title"];?>
 		</a>
 		<h3 class="post-date">
-			&mdash; <?php echo $post["post_date"];?>
+			&mdash; <?php echo get_the_date("",$post);?>
 		</h3>
 		<p class="post-content">
 			<?php echo $post["post_excerpt"];?>
