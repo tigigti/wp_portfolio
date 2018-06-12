@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 <div class="sky-unit"></div>
 <div id="main-content" class="blog-container">
-   <h1>Blog</h1>
     <?php
     $query_blogposts = new WP_Query( 'category_name=blog_post' );
     if($query_blogposts->have_posts()):
