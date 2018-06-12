@@ -1,3 +1,5 @@
 *.zip
 .sass-cache
 .vscode
+style.css
+style.css.map
