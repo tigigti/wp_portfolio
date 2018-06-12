@@ -119,10 +119,41 @@ jQuery(document).ready(function($){
 		});
 	}
 
+	function fetchPostsOnScroll(){
+		var blog = document.getElementById("main-content");
+		if(!blog) {
+			return
+		}
+		var loadingPosts = false;
+		var offset = 10;
+		document.addEventListener("scroll",function() {
+			if(window.innerHeight + window.pageYOffset >= document.body.offsetHeight && !loadingPosts) {
+				loadingPosts = true;
+				console.log("loading Posts...");
+				// Ajax here
+				$.ajax({
+					url: ajaxurl,
+					data: {
+						action: "get_next_posts",
+						offset: offset
+					},
+					type: "post"
+				}).done(function(res){
+					$(blog).append(res);
+					loadingPosts = false;
+					offset += 10;
+				}).fail(function(res){
+					console.log("Request Failed");
+				})
+			}
+		});
+	}
+
 	modalAnimation();
 	fancyForm();
 	fadeInOnView();
 	handleFormRequest();
 	anchorFunction();
+	fetchPostsOnScroll();
 
 });
