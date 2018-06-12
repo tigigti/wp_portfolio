@@ -13,6 +13,7 @@
     </head>
     <body>
         <script type="text/javascript">
+            // Necessary for Ajax Requests
             var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
         </script>
         <ul class="navbar">
